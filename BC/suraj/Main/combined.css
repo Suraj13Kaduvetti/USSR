@@ -1,0 +1,259 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #f4f7fc;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Popup Styles */
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+  }
+  
+  #popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+  }
+  
+  #popup input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  #popup button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #popup button:hover {
+    background-color: #45a049;
+  }
+  
+  #popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* User Info Section */
+  #user-data {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #user-data h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #user-data p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  #user-data strong {
+    color: #4caf50;
+  }
+  
+  /* Payment Methods */
+  .container {
+    text-align: center;
+  }
+  
+  .payment-options {
+    margin: 20px 0;
+  }
+  
+  .payment-options button {
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payment-options button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Payment Sections */
+  .payment-section {
+    display: none;
+    margin-top: 30px;
+  }
+  
+  .payment-section.active {
+    display: block;
+  }
+  
+  .payment-section h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .payment-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .payment-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .payment-section form input {
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .payment-section form button {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payment-section form button:hover {
+    background-color: #45a049;
+  }
+  
+  .payment-section #dataMessage {
+    color: #ff5722;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .payment-section button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payment-section button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Card and UPI Sections */
+  #cardDetails,
+  #upiQRCode,
+  #ethDetails,
+  #btcDetails {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  
+  #cardDetails input,
+  #cardDetails button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  #upiQRCode img,
+  #ethQR,
+  #btcQR {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  #ethAmount,
+  #btcAmount {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  #popup-content {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .payment-section {
+    animation: slideInUp 0.5s ease-out;
+  }
+  
+  button {
+    transition: transform 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+  

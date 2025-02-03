@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page with Animations</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header>
+        <h1>Our Amazing Products</h1>
+    </header>
+
+    <div class="products-container">
+        <div class="product">
+            <img src="https://via.placeholder.com/220x150" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <button class="cart-animation" onclick="addToCart('Product 1', 19.99)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/220x150" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <button class="cart-animation" onclick="addToCart('Product 2', 29.99)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/220x150" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <button class="cart-animation" onclick="addToCart('Product 3', 39.99)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="products-container">
+        <a href="../Cart/cart.html">Go to Cart</a>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.cart-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item button {
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.cart-item button:hover {
+    background-color: #d04e28;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+#proceed-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#proceed-button:hover {
+    background-color: #45a049;
+}

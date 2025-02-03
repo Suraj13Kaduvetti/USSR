@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Method</title>
+  <link rel="stylesheet" href="payment-method.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Choose Payment Method</h2>
+
+    <div class="payment-options">
+      <button onclick="showSection('cash')">Cash</button>
+      <button onclick="showSection('online')">Online Payment</button>
+      <button onclick="showSection('crypto')">Crypto</button>
+    </div>
+
+    <div id="payment-info"></div>
+
+    <div class="payment-section" id="cash">
+      <h3>Cash Payment</h3>
+      <p>Please pay in cash at the counter.</p>
+      
+      <!-- Form for user details -->
+      <form id="userDetailsForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+    
+        <label for="registeredId">Registered ID:</label>
+        <input type="text" id="registeredId" name="registeredId" placeholder="Enter your registered ID" required><br>
+    
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address" required><br>
+    
+        <label for="number">Phone Number:</label>
+        <input type="text" id="number" name="number" placeholder="Enter your phone number" required><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    
+        <button type="button" id="fetchUserData" onclick="fetchUserData()">Fetch User Data</button>
+      </form>
+      
+      <p id="dataMessage"></p>
+    </div>
+
+    <div class="payment-section" id="online">
+      <h3>Online Payment</h3>
+      
+      <!-- Form for user details before selecting payment method -->
+      <form id="userDetailsForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+    
+        <label for="registeredId">Registered ID:</label>
+        <input type="text" id="registeredId" name="registeredId" placeholder="Enter your registered ID" required><br>
+    
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address" required><br>
+    
+        <label for="number">Phone Number:</label>
+        <input type="text" id="number" name="number" placeholder="Enter your phone number" required><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    
+        <button type="button" id="fetchUserData" onclick="fetchUserData()">Fetch User Data</button>
+      </form>
+      
+      <p id="dataMessage"></p>
+      
+      <!-- Payment method buttons -->
+      <button id="cardButton" onclick="showCardDetails()" style="display:none;">Card</button>
+      <button id="upiButton" onclick="showUpiQR()" style="display:none;">UPI</button>
+      
+      <!-- Card payment form (hidden by default) -->
+      <div id="cardDetails" style="display:none;">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required><br>
+    
+        <label for="cvv">CVV:</label>
+        <input type="password" id="cvv" name="cvv" placeholder="Enter CVV" required><br>
+    
+        <button type="button" onclick="submitCardDetails()">Submit Card Details</button>
+      </div>
+    
+      <!-- UPI QR code (hidden by default) -->
+      <div id="upiQRCode" style="display:none;">
+        <img id="upiImage" src="" alt="UPI QR Code">
+      </div>
+    </div>
+
+    <div class="payment-section" id="crypto">
+      <h3>Crypto Payment</h3>
+      <p>Scan the QR Code to pay with crypto.</p>
+    
+      <!-- Form for user details before selecting crypto payment method -->
+      <form id="userDetailsForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+    
+        <label for="registeredId">Registered ID:</label>
+        <input type="text" id="registeredId" name="registeredId" placeholder="Enter your registered ID" required><br>
+    
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address" required><br>
+    
+        <label for="number">Phone Number:</label>
+        <input type="text" id="number" name="number" placeholder="Enter your phone number" required><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    
+        <button type="button" id="fetchUserData" onclick="fetchUserData()">Fetch User Data</button>
+      </form>
+    
+      <p id="dataMessage"></p>
+    
+      <!-- Payment method buttons -->
+      <button id="ethButton" onclick="showEthQR()" style="display:none;">Ethereum</button>
+      <button id="btcButton" onclick="showBtcQR()" style="display:none;">Bitcoin</button>
+    
+      <!-- Ethereum payment form (hidden by default) -->
+      <div id="ethDetails" style="display:none;">
+        <h4>Ethereum Payment</h4>
+        <img id="ethQR" src="" alt="Ethereum QR Code">
+        <p>Total Amount: <span id="ethAmount"></span> ETH</p>
+      </div>
+    
+      <!-- Bitcoin payment form (hidden by default) -->
+      <div id="btcDetails" style="display:none;">
+        <h4>Bitcoin Payment</h4>
+        <img id="btcQR" src="" alt="Bitcoin QR Code">
+        <p>Total Amount: <span id="btcAmount"></span> BTC</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="payment-method.js"></script>
+</body>
+</html>

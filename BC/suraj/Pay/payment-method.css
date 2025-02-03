@@ -1,0 +1,233 @@
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f7f7f7, #e6e6e6);
+  margin: 0;
+  flex-direction: column;
+  animation: fadeIn 1s ease-in-out;
+  color: #333;
+  overflow: hidden; /* Prevent overflow on body */
+}
+
+/* Fade-in animation for body */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 70%;
+  max-height: 90vh; /* Restrict the height */
+  padding: 25px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  animation: slideUp 0.5s ease-out;
+  border: 1px solid #ddd;
+  overflow-y: auto; /* Enable scrolling within the container */
+  box-sizing: border-box; /* Ensure padding doesn't push content outside */
+}
+
+/* Slide-up animation for container */
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #4CAF50;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.payment-options button {
+  width: 30%;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.payment-options button:hover {
+  background-color: #45a049;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.payment-options button:active {
+  background-color: #388e3c;
+  transform: translateY(0);
+}
+
+.payment-section {
+  display: none; /* Default is hidden */
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  animation: fadeInSection 0.5s ease-in;
+  box-sizing: border-box; /* Ensure padding doesn't push content outside */
+}
+
+/* Fade-in animation for payment section */
+@keyframes fadeInSection {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Make the active payment method visible */
+.payment-section.active {
+  display: block;
+}
+
+.payment-section h3 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.payment-section p {
+  color: #555;
+  font-size: 16px;
+}
+
+.payment-section form {
+  margin-top: 20px;
+}
+
+.payment-section label {
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.payment-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.payment-section input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+button[type="button"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+button[type="button"]:active {
+  transform: scale(0.98);
+}
+
+.payment-section img {
+  max-width: 150px;
+  margin: 10px auto;
+  display: block;
+  animation: bounce 1.5s infinite;
+}
+
+/* Bounce animation for images */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Payment method section - visible states */
+.payment-section#cash, .payment-section#online, .payment-section#crypto {
+  display: block;
+}
+
+#cardDetails, #upiQRCode, #ethDetails, #btcDetails {
+  display: none;
+  margin-top: 20px;
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button[id^="cardButton"], button[id^="upiButton"], button[id^="ethButton"], button[id^="btcButton"] {
+  background-color: #2196F3;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: white;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+button[id^="cardButton"]:hover, button[id^="upiButton"]:hover, button[id^="ethButton"]:hover, button[id^="btcButton"]:hover {
+  background-color: #1E88E5;
+}
+
+button[id^="cardButton"]:active, button[id^="upiButton"]:active, button[id^="ethButton"]:active, button[id^="btcButton"]:active {
+  background-color: #1565C0;
+}
+
+#upiQRCode img, #ethQR img, #btcQR img {
+  width: 150px;
+  margin: 10px auto;
+  display: block;
+}
+
+#ethDetails span, #btcDetails span {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  margin-top: 5px;
+}

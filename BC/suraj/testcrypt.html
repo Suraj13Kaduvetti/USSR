@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .payment-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .payment-options button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .payment-options button:hover {
+      background-color: #45a049;
+    }
+
+    .payment-section {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .payment-section input, .payment-section img {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .payment-section img {
+      max-width: 100px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .fox-logo {
+      position: absolute;
+      width: 50px;
+      height: auto;
+      transition: transform 0.1s ease;
+      pointer-events: none; /* Prevent the logo from interfering with other elements */
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>Choose Payment Method</h2>
+
+    <div class="payment-options">
+      <button onclick="showSection('cash')">Cash</button>
+      <button onclick="showSection('online')">Online Payment</button>
+      <button onclick="showSection('crypto')">Crypto</button>
+    </div>
+
+    <!-- Cash Section -->
+    <div class="payment-section" id="cash">
+      <h3>Cash Payment</h3>
+      <p>Please pay in cash at the counter.</p>
+    </div>
+
+    <!-- Online Payment Section -->
+    <div class="payment-section" id="online">
+      <h3>Online Payment</h3>
+      <button onclick="showCardDetails()">Card</button>
+      <button onclick="showUpiQR()">UPI</button>
+
+      <!-- Card Details Section -->
+      <div class="payment-section" id="card-section">
+        <h4>Card Payment</h4>
+        <input type="text" placeholder="Card Number" />
+        <input type="text" placeholder="Expiry Date" />
+        <input type="text" placeholder="CVV" />
+      </div>
+
+      <!-- UPI QR Section -->
+      <div class="payment-section" id="upi-section">
+        <h4>UPI Payment</h4>
+        <p>Scan the QR code to make payment.</p>
+        <img src="https://via.placeholder.com/150" alt="UPI QR" />
+      </div>
+    </div>
+
+    <!-- Crypto Section -->
+    <div class="payment-section" id="crypto">
+      <h3>Crypto Payment</h3>
+      <p>Scan the QR Code to pay with crypto.</p>
+      <img src="qr.png" alt="Crypto QR" />
+      <!-- Fox Logo that follows the cursor -->
+      <img src="fox.png" alt="Fox Logo" class="fox-logo" id="fox-logo" />
+    </div>
+  </div>
+
+  <script>
+    function showSection(section) {
+      // Hide all sections
+      document.getElementById('cash').style.display = 'none';
+      document.getElementById('online').style.display = 'none';
+      document.getElementById('crypto').style.display = 'none';
+      document.getElementById('card-section').style.display = 'none';
+      document.getElementById('upi-section').style.display = 'none';
+
+      // Show selected section and activate mouse follow for the Fox logo if the crypto section is selected
+      if (section === 'cash') {
+        document.getElementById('cash').style.display = 'block';
+        disableMouseFollow();
+      } else if (section === 'online') {
+        document.getElementById('online').style.display = 'block';
+        disableMouseFollow();
+      } else if (section === 'crypto') {
+        document.getElementById('crypto').style.display = 'block';
+        enableMouseFollow();
+      }
+    }
+
+    function showCardDetails() {
+      document.getElementById('card-section').style.display = 'block';
+      document.getElementById('upi-section').style.display = 'none';
+    }
+
+    function showUpiQR() {
+      document.getElementById('upi-section').style.display = 'block';
+      document.getElementById('card-section').style.display = 'none';
+    }
+
+    // Fox logo follows the mouse cursor
+    const foxLogo = document.getElementById('fox-logo');
+
+    function enableMouseFollow() {
+      document.addEventListener('mousemove', moveFoxLogo);
+    }
+
+    function disableMouseFollow() {
+      document.removeEventListener('mousemove', moveFoxLogo);
+    }
+
+    function moveFoxLogo(event) {
+      foxLogo.style.transform = `translate(${event.pageX - foxLogo.width / 2}px, ${event.pageY - foxLogo.height / 2}px)`;
+    }
+  </script>
+
+</body>
+</html>
